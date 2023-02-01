@@ -1,0 +1,136 @@
+.input_right {
+    color: #EEA65E;
+    background-color: #333;
+    padding: .5rem;
+    border: none;
+    border-radius: 0 50rem 50rem 0;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+}
+
+.input {
+    position: relative;
+    color: #EEA65E;
+    background-color: #333;
+    padding: .5rem;
+    padding-left: 1rem;
+    border: 3px solid #444;
+    border-radius: 50rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.input:focus+.exact_nickname {
+    opacity: 1;
+    visibility: visible;
+}
+
+.input:focus,
+.input_right:focus {
+    outline: 3px solid #EEA65E;
+}
+
+.profile_search_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.battleId_container {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    border: 3px solid #444;
+    border-radius: 50rem;
+}
+
+.hash {
+    color: #EEA65E;
+    font-size: 2em;
+    line-height: .5;
+    padding-inline: .5rem;
+}
+
+.submit {
+    cursor: pointer;
+    color: #EEA65E;
+    background-color: #111;
+    padding: .5rem;
+    border-radius: 5px;
+    transition: scale .5s ease, text-shadow .5s ease;
+}
+
+.submit:hover {
+    scale: 1.1;
+    text-shadow: 0 0 10px #EEA65E;
+}
+
+/* PROFILE FOUND */
+
+.profile_found_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #222 0%, #111 100%);
+    padding: 2rem;
+}
+
+.nickname {
+    font-size: 2.3em;
+    background: linear-gradient(180deg, #630b0b 0%, #EEA65E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(128, 0, 0, 0.5);
+    background-clip: text;
+}
+
+.heroes_list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    padding: 2rem;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30rem;
+}
+
+.hero:nth-child(2n) {
+    opacity: .3;
+}
+
+.hero_name {
+    font-size: 1.5em;
+    text-shadow: 0 0 10px #EEA65E;
+}
+
+.hero_lvl {
+    margin-bottom: 1rem;
+}
+
+.class_img {
+    height: 20rem;
+}
+
+.arrow_invisible {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.arrow {
+    font-size: 2em;
+    opacity: .2;
+    transition: opacity .2s ease;
+    cursor: pointer;
+}
+
+.arrow:hover {
+    opacity: 1;
+}
