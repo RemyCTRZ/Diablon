@@ -11,12 +11,10 @@ const Hello = () => {
 	const [error, setError] = useState()
 
 	const [acts, setActs] = useState()
-	const [selectedAct, setSelectedAct] = useState(1)
+	const [selectedAct, setSelectedAct] = useState()
 	const [selectedActInfos, setSelectedActInfos] = useState()
 
 	const [toDoQuests, setToDoQuests] = useState()
-
-	const [accessToken, setAccessToken] = useState('EUjKLVpA9Am5y0iB06OOHSCC3PUVS0dZnR')
 
 	const [accessToken, setAccessToken] = useState('EU02rm3UsyrRex6AyhtIGIfrBlgrjanW7D')
 
