@@ -10,8 +10,10 @@ const Hello = () => {
 
 	const [acts, setActs] = useState()
 
+	const [accessToken, setAccessToken] = useState('EU02rm3UsyrRex6AyhtIGIfrBlgrjanW7D')
+
 	const getInfos = async () => {
-		await axios.get(`https://us.api.blizzard.com/d3/data/act?locale=fr_FR&access_token=EUhSc5XEI3jjKv72x7aBrwtEtlLt44iTgQ`)
+		await axios.get(`https://us.api.blizzard.com/d3/data/act?locale=fr_FR&access_token=${accessToken}`)
 			.then(response => {
 				setActs(response.data.acts)
 			})
@@ -53,7 +55,7 @@ const Hello = () => {
 
 			<h2 className='sub_title'>Profil</h2>
 
-			<Profile setError={setError} />
+			<Profile setError={setError} accessToken={accessToken} />
 
 		</main >
 	);

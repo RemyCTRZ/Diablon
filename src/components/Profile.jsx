@@ -17,21 +17,20 @@ import NecromancerFemale from '../../assets/images/classes/necromancerF.gif'
 import Wizard from '../../assets/images/classes/wizard.jpg'
 import WizardFemale from '../../assets/images/classes/wizardF.jpg'
 
-export default function Profile({ setError }) {
+export default function Profile({ setError, accessToken }) {
 
     const [nickname, setNickname] = useState()
     const [battleId, setBattleId] = useState()
 
     const [profileInfos, setProfileInfos] = useState()
     const [heroesList, setHeroesList] = useState()
-    const [selectedClass, setSelectedClass] = useState([])
 
     const [spliceStart, setSpliceStart] = useState(0)
     const [spliceEnd, setSpliceEnd] = useState(3)
 
     const getProfile = async () => {
         try {
-            await axios.get(`https://eu.api.blizzard.com/d3/profile/${nickname}%23${battleId}/?locale=fr_FR&access_token=EUhSc5XEI3jjKv72x7aBrwtEtlLt44iTgQ`)
+            await axios.get(`https://eu.api.blizzard.com/d3/profile/${nickname}%23${battleId}/?locale=fr_FR&access_token=${accessToken}`)
                 .then(response => {
                     console.log(response.data.heroes)
                     setProfileInfos(response.data)
