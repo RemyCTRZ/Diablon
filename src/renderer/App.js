@@ -4,11 +4,19 @@ import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import WorldMap from '../../assets/images/world-map.jpg'
 import Profile from '../components/Profile';
+import Act from '../pages/Act';
+
 const Hello = () => {
 
 	const [error, setError] = useState()
 
 	const [acts, setActs] = useState()
+	const [selectedAct, setSelectedAct] = useState(1)
+	const [selectedActInfos, setSelectedActInfos] = useState()
+
+	const [toDoQuests, setToDoQuests] = useState()
+
+	const [accessToken, setAccessToken] = useState('EUjKLVpA9Am5y0iB06OOHSCC3PUVS0dZnR')
 
 	const [accessToken, setAccessToken] = useState('EU02rm3UsyrRex6AyhtIGIfrBlgrjanW7D')
 
@@ -19,12 +27,36 @@ const Hello = () => {
 			})
 	}
 
+	const getAct = async () => {
+		await axios.get(`https://eu.api.blizzard.com/d3/data/act/${selectedAct}?locale=fr_FR&access_token=${accessToken}`)
+			.then(response => {
+				let quests = response.data.quests
+				quests.map(quest => {
+					Object.assign(quest, { done: false })
+				})
+				setToDoQuests(quests)
+				setSelectedActInfos(response.data)
+			})
+	}
+
 	useEffect(() => {
 		getInfos()
 	}, [])
 
+	useEffect(() => {
+		if (selectedAct) getAct()
+	}, [selectedAct])
+
+	// Ecran de chargement
+
 	if (acts == null) return (
 		<h1>Loading</h1>
+	)
+
+	// Acte sélectionné
+
+	if (selectedAct && selectedActInfos) return (
+		<Act selectedActInfos={selectedActInfos} setSelectedAct={setSelectedAct} toDoQuests={toDoQuests} />
 	)
 
 	return (
@@ -42,7 +74,7 @@ const Hello = () => {
 			<ul className='acts_list'>
 				{acts.map((act, index) => {
 					return (
-						<li key={index} className='act'>
+						<li key={index} className='act' onClick={() => setSelectedAct(index + 1)}>
 							<img className='act_img' src={WorldMap} />
 							<div className='act_txt'>
 								<p className='act_name'>{act.name}</p>

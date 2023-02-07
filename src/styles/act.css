@@ -1,0 +1,39 @@
+.act_container {
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom, #222 0%, #111 100%);
+}
+
+.quests_list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 5rem;
+}
+
+.quest {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background-image: linear-gradient(to bottom, rgba(87, 23, 23, 0.613) 0%, rgba(77, 17, 17, 0.39) 100%);
+    padding: .5rem 1rem;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.quest_title {
+    color: #fff;
+    transition: color .2s ease, text-shadow .2s ease;
+}
+
+.quest:hover .quest_title {
+    color: #EEA65E;
+    text-shadow: 0 0 3px #EEA65E;
+}
+
+.exit {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background-color: #630b0b;
+}
