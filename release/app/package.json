@@ -1,6 +1,6 @@
 {
   "name": "diablon",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "Diablo 3 API",
   "main": "./dist/main/main.js",
   "scripts": {
